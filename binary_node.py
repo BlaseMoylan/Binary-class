@@ -36,6 +36,24 @@ class TreeNode:
             return"None"
         else:
             return value.data
-        
+
+    #need more testing
+
     def search_for_node(self,value):
-        pass
+        if value==self.root:
+            pass
+        if self.root.right==None or self.root.left==None:
+            print('not found')
+        else:
+            if value<self.root.data:
+                if value!=self.root.left.data:
+                    self.root=self.root.left
+                    self.search_for_node(value)
+                else :
+                    print('found')
+            else :
+                if value!=self.root.right.data:
+                    self.root=self.root.right
+                    self.search_for_node(value)
+                else:
+                    print('found')
