@@ -60,14 +60,7 @@ class BinaryNode:
         self.left=None
         self.right=None
         self.data=data
-        self.root=None
-    def pre_order(self,list_of_values):
-        for item in list_of_values:
-            self.insert_node(item)
-    def ordered(self,list_of_values):
-        values_list=list_of_values.sort()
-        for item in values_list:
-            self.insert_node(item)
+
     def insert_node(self,value):
         if value==self.data:
             print(f'node with data {value} created')
@@ -91,8 +84,6 @@ class BinaryNode:
         else:
             return value.data
 
-    #need more testing
-
     def search_for_node(self,value):
         if self.right==None or self.left==None:
             print('not found')
@@ -109,3 +100,30 @@ class BinaryNode:
                     self.right.search_for_node(value)
                 else:
                     print('found')
+    
+    def pre_ordered(self,root,pre_ordered_list):
+        pre_ordered_list=pre_ordered_list
+        pre_ordered_list.append(root.data)
+        if root.left!=None:
+            self.pre_ordered(root.left,pre_ordered_list)
+        if root.right!=None:
+            self.pre_ordered(root.right,pre_ordered_list)
+        return pre_ordered_list
+    
+    def inorder(self,root,ordered_list):
+        ordered_list=ordered_list
+        if root.left!=None:
+            self.inorder(root.left,ordered_list)
+        ordered_list.append(root.data)
+        if root.right!=None:
+            self.inorder(root.right,ordered_list)
+        return ordered_list
+    
+    def post_order(self,root,post_order_list):
+        post_order_list=post_order_list
+        if root.left!=None:
+            self.post_order(root.left,post_order_list)
+        if root.right!=None:
+            self.post_order(root.right,post_order_list)
+        post_order_list.append(root.data)
+        return post_order_list

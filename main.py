@@ -33,5 +33,6 @@ print('\nSearch for node with value of 31')
 root1.search_for_node(31)
 print('\nSearch for node with value of 11')
 root1.search_for_node(11)
-
-
+print(root1.pre_ordered(root1,[]))
+print(root1.inorder(root1,[]))
+print(root1.post_order(root1,[]))
