@@ -27,8 +27,11 @@ root1.insert_node(42)
 # root1.insert_node(root1.root,4)
 # root1.insert_node(root1.root,11)
 # root1.insert_node(root1.root,12)
+print('\nSearch for node with value of 10')
 root1.search_for_node(10)
+print('\nSearch for node with value of 31')
 root1.search_for_node(31)
+print('\nSearch for node with value of 11')
 root1.search_for_node(11)
 
 

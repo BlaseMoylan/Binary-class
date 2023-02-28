@@ -61,6 +61,13 @@ class BinaryNode:
         self.right=None
         self.data=data
         self.root=None
+    def pre_order(self,list_of_values):
+        for item in list_of_values:
+            self.insert_node(item)
+    def ordered(self,list_of_values):
+        values_list=list_of_values.sort()
+        for item in values_list:
+            self.insert_node(item)
     def insert_node(self,value):
         if value==self.data:
             print(f'node with data {value} created')
@@ -91,11 +98,13 @@ class BinaryNode:
             print('not found')
         else:
             if value<self.data:
+                print('direction: left')
                 if value!=self.left.data:
                     self.left.search_for_node(value)
                 else :
                     print('found')
             else :
+                print('direction: right')
                 if value!=self.right.data:
                     self.right.search_for_node(value)
                 else:
